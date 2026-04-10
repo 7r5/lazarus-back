@@ -2,6 +2,21 @@
 
 REST API backend para WebNotes construida con Spring Boot 3.x, Java 17 y PostgreSQL.
 
+
+## Quick Commands
+
+```powershell
+mvn build
+```
+
+```powershell
+mvn spring-boot:run
+```
+
+```powershell
+mvn test
+```
+
 ## Stack Tecnológico
 
 - **Lenguaje:** Java 17+

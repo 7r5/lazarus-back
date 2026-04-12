@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
@@ -28,14 +29,16 @@ public class ProductController {
     }
 
     @GetMapping("/filter")
-    public ResponseEntity<List<Product>> getFiltered(
-            @RequestParam(required = false) String category,
-            @RequestParam(required = false) String size,
-            @RequestParam(required = false) String color) {
+    public ResponseEntity<List<Product>> filterProducts(
+        @RequestParam(required = false) String category,
+        @RequestParam(required = false) String size) {
         
-        // Llamamos al servicio pasando los criterios
-        List<Product> filtered = productService.getFilteredProducts(category, size, color);
-        return ResponseEntity.ok(filtered);
+        // Si ambos vienen nulos o vacíos, devolvemos todos
+        if ((category == null || category.isEmpty()) && (size == null || size.isEmpty())) {
+            return ResponseEntity.ok(productService.getAllProducts());
+        }
+        
+        return ResponseEntity.ok(productService.filter(category, size));
     }
 
     @GetMapping("/getCategories")

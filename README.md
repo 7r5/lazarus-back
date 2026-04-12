@@ -95,6 +95,16 @@ mvn -version
 3. Selecciona **WSL**
 4. Abre una nueva terminal (`Ctrl+Ñ`)
 
+
+## Extensiones para VSCode
+
+- Extension pack for java
+- Spring Boot Extension Pack
+- SonarLint
+- Checkstyle for Java
+- Java (formatter) (TODO, ocupariamos instalar jdk en windows o usar vscode desde wsl con la extension)
+
+
 ## Estructura del Proyecto
 
 ```

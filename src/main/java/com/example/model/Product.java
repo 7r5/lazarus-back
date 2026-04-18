@@ -9,6 +9,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.FetchType;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "clothes")
@@ -28,6 +29,7 @@ public class Product {
     private String imageUrl;    // Para mostrar la foto en el frontend (React)
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Comment> comments;
 
     // Getters y Setters

@@ -35,4 +35,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("SELECT DISTINCT p.size FROM Product p WHERE p.category = :category")
     List<String> findSizesFromProductCategory(@Param("category") String category);
 
+    @Query("SELECT p FROM Product p LEFT JOIN FETCH p.comments WHERE p.id = :id")
+    Product findByIdWithComments(@Param("id") Long id);
+
 }

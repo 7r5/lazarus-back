@@ -62,10 +62,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductDetails(@PathVariable Long id) {
-        Product product = productService.getAllProducts().stream()
-                .filter(p -> p.getId().equals(id))
-                .findFirst()
-                .orElse(null);
+        Product product = productService.getProductByIdWithComments(id);
         if (product == null) {
             return ResponseEntity.notFound().build();
         }

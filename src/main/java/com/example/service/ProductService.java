@@ -45,4 +45,8 @@ public class ProductService {
     public List<String> findSizesFromProductCategory(String category) {
         return productRepository.findSizesFromProductCategory(category);
     }
+
+    public Product getProductByIdWithComments(Long id) {
+        return productRepository.findByIdWithComments(id);
+    }
 }

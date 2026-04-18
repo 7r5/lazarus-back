@@ -6,9 +6,17 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import com.example.model.Product;
 import com.example.repository.ProductRepository;
-import com.example.repository.UsersRepository;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 
 @SpringBootApplication
+@OpenAPIDefinition(
+    info = @Info(
+        title = "Lazarus Shop API",
+        version = "1.0",
+        description = "API REST para la tienda de ropa Lazarus Shop"
+    )
+)
 public class Application {
 
     public static void main(String[] args) {

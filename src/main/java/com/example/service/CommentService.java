@@ -40,7 +40,7 @@ public class CommentService {
     }
 
     public List<Comment> getCommentsByProductId(Long productId) {
-        return commentRepository.findByProductId(productId);
+        return commentRepository.findByProduct_Id(productId);
     }
 
     public List<Comment> getCommentsByType(String type) {
@@ -48,6 +48,6 @@ public class CommentService {
     }
 
     public List<Comment> getCommentsByProductAndType(Long productId, String type) {
-        return commentRepository.findByProductIdAndType(productId, type);
+        return commentRepository.findByProduct_IdAndType(productId, type);
     }
 }

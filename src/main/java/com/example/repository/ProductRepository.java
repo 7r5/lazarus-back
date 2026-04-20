@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
@@ -14,6 +15,9 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     // Filtrar por talla
     List<Product> findBySize(String size);
+
+    // Filtrar por Id
+    Optional<Product> findById(Long id);
 
     // Filtrar por color
     List<Product> findByColor(String color);
@@ -34,8 +38,5 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     // Agrega un metodo que regrese las tallas disponibles para una categoria dada
     @Query("SELECT DISTINCT p.size FROM Product p WHERE p.category = :category")
     List<String> findSizesFromProductCategory(@Param("category") String category);
-
-    @Query("SELECT p FROM Product p LEFT JOIN FETCH p.comments WHERE p.id = :id")
-    Product findByIdWithComments(@Param("id") Long id);
 
 }

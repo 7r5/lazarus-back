@@ -14,6 +14,8 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.Parameter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 @CrossOrigin(origins = "*")
@@ -98,7 +100,7 @@ public class ProductController {
         @ApiResponse(responseCode = "404", description = "Producto no encontrado")
     })
     public ResponseEntity<Product> getProductDetails(@Parameter(description = "ID del producto") @PathVariable Long id) {
-        Product product = productService.getProductByIdWithComments(id);
+        Product product = productService.getProductById(id);
         if (product == null) {
             return ResponseEntity.notFound().build();
         }

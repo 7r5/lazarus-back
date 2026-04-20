@@ -13,12 +13,16 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.Parameter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/comments")
 @Tag(name = "Comentarios", description = "Endpoints para gestionar comentarios de productos")
 public class CommentController {
+
+    private static final Logger logger = LoggerFactory.getLogger(CommentController.class);
 
     @Autowired
     private CommentService commentService;

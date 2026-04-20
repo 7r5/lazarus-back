@@ -17,6 +17,13 @@ mvn spring-boot:run
 mvn test
 ```
 
+```powershell
+mvn -Dtest=ProductControllerTest test
+```
+
+- `mvn test` ejecuta todas las pruebas.
+- `mvn -Dtest=ProductControllerTest test` ejecuta solo la prueba del endpoint `/api/products/{id}`.
+
 ## Stack Tecnológico
 
 - **Lenguaje:** Java 17+
@@ -98,12 +105,7 @@ mvn -version
 
 ## Extensiones para VSCode
 
-- Extension pack for java
-- Spring Boot Extension Pack
-- SonarLint
-- Checkstyle for Java
-- Java (formatter) (TODO, ocupariamos instalar jdk en windows o usar vscode desde wsl con la extension)
-
+- Java (asi nomas dice tiene 5.5 millones de descargas y ya que lo instalen les saldra algo del JDK, le dan que si e instalar)
 
 ## Estructura del Proyecto
 

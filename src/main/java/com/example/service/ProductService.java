@@ -1,11 +1,12 @@
 package com.example.service;
 
-import com.example.model.Product;
-import com.example.repository.ProductRepository;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.example.model.Product;
+import com.example.repository.ProductRepository;
 
 @Service
 public class ProductService {
@@ -25,17 +26,17 @@ public class ProductService {
         if (category != null && size != null) {
             return productRepository.findByCategoryAndSize(category, size);
         }
-            if (category != null) {
-                return productRepository.findByCategoryIgnoreCase(category);
-            }
-            if (size != null) {
-                return productRepository.findBySize(size);
-            }
+        if (category != null) {
+            return productRepository.findByCategoryIgnoreCase(category);
+        }
+        if (size != null) {
+            return productRepository.findBySize(size);
+        }
         return productRepository.findAll();
     }
 
     public List<String> findAllCategories() {
-        return productRepository.findAllCategories(); 
+        return productRepository.findAllCategories();
     }
 
     public List<String> findAllSizes() {
@@ -46,7 +47,7 @@ public class ProductService {
         return productRepository.findSizesFromProductCategory(category);
     }
 
-    public Product getProductByIdWithComments(Long id) {
-        return productRepository.findByIdWithComments(id);
+    public Product getProductById(Long id) {
+        return productRepository.findById(id).orElseThrow(() -> new RuntimeException("Producto no encontrado con id: " + id));
     }
 }
